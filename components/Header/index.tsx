@@ -9,7 +9,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-surface shadox-xs px-4 py-3 sm:px-8">
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
         <div className=" flex-1 hidden sm:block">
-          <Navigation />
+          <Navigation accountlinks={<AccountLinks />}/>
         </div>
         <Link href="/" className="flex justify-center hover:opacity-90 transition-opacity shrink-0 mx-10">
           <Logo />

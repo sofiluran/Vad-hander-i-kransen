@@ -2,9 +2,8 @@
 
 import { useState } from "react"
 import Search from "../Header/search"
-import AccountLinks from "../Header/accountLinks";
 
-const Navigation = () => {
+const Navigation = ({ accountlinks }: { accountlinks: React.ReactNode }) => {
   const [showMenu, setShowMenu] = useState(false)
   return (
     <div>
@@ -13,13 +12,13 @@ const Navigation = () => {
       </button>
 
       {showMenu && (
-        <div>
+        <div className="p-4">
 
           <div>
-          <Search />
+            <Search />
           </div>
           <div>
-            <AccountLinks />
+            {accountlinks}
           </div>
 
         </div>
