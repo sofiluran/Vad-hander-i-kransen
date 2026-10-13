@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/serverClient"
 import Link from "next/link"
-import { Logout } from "@/actions/logout-action"
+import LogoutButton from "../LogoutButton"
 
 const AccountLinks = async () => {
   const supabase = await createClient()
@@ -10,9 +10,7 @@ const AccountLinks = async () => {
     <div className="flex gap-5">
       {user ?
         <div className="flex items-center gap-3">
-          <div onClick={Logout} className="px-3 py-2 text-sm font-semibold text-text hover:text-accent border border-surface hover:bg-surface/50 rounded-xl transition-all cursor-pointer">
-            Logga Ut
-          </div>
+          <LogoutButton />
           <Link className="px-3 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl transition-all shadow-sm" href="/create">
             Skapa Event
           </Link>

@@ -1,15 +1,10 @@
 'use client'
 
-import { ReactNode, useState } from "react"
+import { useState } from "react"
 import Search from "../Header/search"
+import AccountLinks from "../Header/accountLinks";
 
-
-interface NavProps {
-  accountlinks: ReactNode;
-}
-
-
-const Navigation = ({accountlinks}: NavProps) => {
+const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false)
   return (
     <div>
@@ -24,7 +19,7 @@ const Navigation = ({accountlinks}: NavProps) => {
           <Search />
           </div>
           <div>
-            {accountlinks}
+            <AccountLinks />
           </div>
 
         </div>
