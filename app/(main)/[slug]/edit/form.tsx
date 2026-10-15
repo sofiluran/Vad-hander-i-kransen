@@ -9,7 +9,7 @@ import { useMutation } from "@tanstack/react-query"
 import { useForm } from 'react-hook-form'
 import z from "zod"
 
-const EditPageForm = ({ initialValues, eventId }: { initialValues: Pick<Tables<"events">, "title" | "content" | "image" | "adress">, eventId: string }) => {
+const EditPageForm = ({ initialValues, eventId }: { initialValues: Pick<Tables<"events">, "title" | "content" | "image" | "adress" | "category">, eventId: string }) => {
 
   const eventImageSchema = eventSchema.omit({ image: true })
     .extend({ image: z.unknown().transform(value => { return value as FileList }).optional() })
@@ -32,7 +32,7 @@ const EditPageForm = ({ initialValues, eventId }: { initialValues: Pick<Tables<"
     <form onSubmit={handleSubmit(values => {
 
       let imageForm = undefined
-      if (values.image && typeof values.image !== "string") {
+      if (values.image && typeof values.image !== "string" && values.image[0]) {
         imageForm = new FormData()
         imageForm.append('image', values.image[0])
       }

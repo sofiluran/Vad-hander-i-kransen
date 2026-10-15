@@ -16,7 +16,8 @@ export const eventSchema = z.object({
   content: z.string().optional(),
   image: z.instanceof(FormData).optional(), 
   adress: z.string().min(1, "Skriv in adress på eventet"), 
-  date: z.string().optional()
+  date: z.string().optional(), 
+  category: z.string().optional()
 })
 
 export const commentSchema = z.object({

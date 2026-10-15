@@ -19,7 +19,7 @@ const EditEventPage = async ({ params }: { params: { slug: string } }) => {
       {data &&
         <div>
           <h2 className="text-2xl font-bold text-primary tracking-tight">Redigera: {data.title}</h2>
-          <EditPageForm initialValues={{ title: data.title, content: data.content, image: data.image, adress: data.adress }} eventId={data.id} />
+          <EditPageForm initialValues={{ title: data.title, content: data.content, image: data.image, adress: data.adress, category: data.category }} eventId={data.id} />
         </div>}
     </div>
   )

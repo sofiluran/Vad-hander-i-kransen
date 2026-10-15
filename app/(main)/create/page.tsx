@@ -31,10 +31,24 @@ const CreateEventPage = () => {
           content: values.content,
           image: imageForm,
           adress: values.adress,
-          date: values.date
+          date: values.date,
+          category: values.category
         })
       })}
         className="flex flex-col gap-4 p-6 bg-background/80 border border-surface rounded-2xl shadow-sm">
+
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="category" className="label">Kategori</label>
+          <select {...register("category")} className="w-full px-3.5 py-2.5 text-sm bg-white border border-surface rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+            <option value="loppis">Loppis</option>
+            <option value="mat-dryck">Mat & Dryck</option>
+            <option value="musik-film">Musik & Film</option>
+            <option value="barn-familj">Barn & Familj</option>
+            <option value="quiz">Quiz</option>
+            <option value="annat">Annat</option>
+          </select>
+          {errors.category && <ErrorMessage error={errors.category.message!} />}
+        </div>
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="title" className="text-sm font-semibold text-text">Ange rubrik</label>

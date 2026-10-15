@@ -7,20 +7,20 @@ const AccountLinks = async () => {
   const { data: { user }, error } = await supabase.auth.getUser()
 
   return (
-    <div className="flex gap-5">
+    <div className="flex flex-col gap-3">
       {user ?
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-3">
           <LogoutButton />
-          <Link className="px-3 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl transition-all shadow-sm" href="/create">
-            Skapa Event
+          <Link className="flex justify-center px-4 py-3 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl transition-all shadom-md" href="/create">
+          Skapa Event
           </Link>
         </div>
         :
-        <div className="flex items-center gap-2">
-          <Link className="inline-block px-3 py-2 text-sm font-semibold text-text hover:text-primary bg-surface/60 hover:bg-surface rounded-xl transition-all" href="/auth/login">
+        <div className="flex flex-col gap-3">
+          <Link className="flex justify-center px-4 py-3 text-sm font-semibold text-text bg-surface border-2 border-primary/40 hover:border-primary hover:bg-primary/10 rounded-xl transition-all shadow-sm" href="/auth/login">
             Logga In
           </Link>
-          <Link className="inline-block px-3 py-2 text-sm font-semibold text-white bg-secondary hover:bg-secondary/90 rounded-xl transition-all shadow-sm" href="/auth/signup">
+          <Link className="flex justify-center px-4 py-3 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl transition-all shadow-md" href="/auth/signup">
             Skapa Konto
           </Link>
         </div>

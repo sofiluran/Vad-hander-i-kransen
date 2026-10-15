@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import HomeEvents from "@/components/HomeEvents";
 import { getHomeEvents } from "@/lib/supabase/queries";
 import { createClient } from "@/lib/supabase/serverClient";
+import Link from "next/link";
 
 export const revalidate = 600;
 
@@ -13,13 +14,20 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-background py-10 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
-        <header className="text-center flex flex-col gap-2 pb-10">
+        <header className=" flex flex-col gap-2 pb-10">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight">Vad händer i kransen</h1>
           <p className="text-text/70 text-base sm:text-lg">Håll dig uppdaterad med det senaste från Midsommarkransen</p>
         </header>
       </div>
 
       {data && <HomeEvents events={data} />}
+
+      <div className="flex justify-center pt-6">
+        <Link href="/event"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-primary bg-primary/10 hover:bg-primary/20 rounded-2xl transition-all shadow-sm" >
+          Se alla events →
+        </Link>
+      </div>
 
       <div className="flex flex-col gap-1 mt-6 items-center ">
         <div className="flex items-center gap-2">

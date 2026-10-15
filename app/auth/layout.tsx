@@ -4,9 +4,9 @@ import Link from "next/link"
 const AuthLayout = ({children}:{children:React.ReactNode}) => {
   return (
     <div className="min-h-screen bg-background text-text flex flex-col">
-      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-surface px-4 py-3 sm:px-8">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link className="block" href="/">
+      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b-2 border-surface px-4 py-3 sm:px-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-center">
+          <Link className="flex " href="/">
             <Logo />
           </Link>
         </div>

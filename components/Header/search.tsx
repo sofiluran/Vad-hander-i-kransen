@@ -29,7 +29,7 @@ const Search = () => {
         <input
           className="w-full px-3 py-2 text-sm bg-white border border-surface/80 rounded-xl text-text placeholder:text-text/40 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           onChange={handleChange}
-          placeholder="Sök efter inlägg"
+          placeholder="Sök efter event"
           value={input} />
         <button
           onClick={handleClick}

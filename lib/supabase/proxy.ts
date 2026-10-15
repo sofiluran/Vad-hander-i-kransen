@@ -27,6 +27,7 @@ export const updateSession = async (request: NextRequest) => {
 
   const protectedRoute: RegExp[] = [
     /^\/create$/,
+    /^\/profile$/,
     /^\/[^\/]+\/edit$/
   ]
 

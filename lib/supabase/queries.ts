@@ -4,7 +4,7 @@ import { type QueryData } from '@supabase/supabase-js'
 export const getHomeEvents = async (supabase: ReturnType<typeof createClient>) => {
 
   return await supabase.from("events")
-    .select('title, id, slug, image, latitude, longitude, adress, date, author("username")')
+    .select('title, id, slug, image, latitude, longitude, category, adress, date, author("username")')
     .order('created_at', { ascending: false })
 }
 export type HomeEventsType = QueryData<ReturnType<typeof getHomeEvents>>;
@@ -13,7 +13,7 @@ export type HomeEventsType = QueryData<ReturnType<typeof getHomeEvents>>;
 export const getSingleEvent = async (slug: string) => {
   const supabase = createClient()
   return await supabase.from("events")
-    .select('id, title, content, adress, date, image, author("id", "username")')
+    .select('id, title, content, adress, category, date, image, author("id", "username")')
     .eq('slug', slug)
     .single()
 }
@@ -35,8 +35,16 @@ export const getComment = async (eventid: string) => {
     .select('content, id, userid("id", "username")')
     .eq("eventid", eventid)
     .order('created_at', { ascending: false })
-    if(error) console.log("Error", error)
-      return data
+  if (error) console.log("Error", error)
+  return data
 }
 export type CommentType = QueryData<ReturnType<typeof getComment>>
 
+
+export const getUserEvents = async (userid: string) => {
+  const supabase = createClient()
+  return await supabase.from("events")
+    .select('id, content, title, image, slug, date, category, latitude, longitude, adress, author("username")')
+    .eq("author", userid)
+    .order('created_at', { ascending: false })
+}
